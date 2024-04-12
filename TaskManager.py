@@ -7,3 +7,9 @@ class TaskManager:
     def __init__(self):
         self.tasks = []
 
+
+    def mark_task_completed(self, index):
+        if 0 <= index < len(self.tasks):
+            self.tasks[index].completed = True
+        else:
+            print("Invalid task index.")
