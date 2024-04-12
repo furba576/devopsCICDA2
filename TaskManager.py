@@ -6,7 +6,7 @@ class Task:
 class TaskManager:
     def __init__(self):
         self.tasks = []
-        
+
     def add_task(self, description):
         task = Task(description)
         self.tasks.append(task)
@@ -16,3 +16,11 @@ class TaskManager:
             self.tasks[index].completed = True
         else:
             print("Invalid task index.")
+
+    def list_tasks(self):
+        if not self.tasks:
+            print("No tasks.")
+        else:
+            for i, task in enumerate(self.tasks):
+                status = "Completed" if task.completed else "Not Completed"
+                print(f"{i+1}. {task.description} - {status}")
