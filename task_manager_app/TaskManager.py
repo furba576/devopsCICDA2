@@ -15,12 +15,15 @@ class TaskManager:
         if 0 <= index < len(self.tasks):
             self.tasks[index].completed = True
         else:
-            print("Invalid task index.")
+            raise IndexError("Invalid task index.")
+
 
     def list_tasks(self):
+        task_list = ""
         if not self.tasks:
-            print("No tasks.")
+            task_list += "No tasks."
         else:
-            for i, task in enumerate(self.tasks):
+            for i, task in enumerate(self.tasks, 1):
                 status = "Completed" if task.completed else "Not Completed"
-                print(f"{i+1}. {task.description} - {status}")
+                task_list += f"{i}. {task.description} - {status}\n"
+        return task_list
